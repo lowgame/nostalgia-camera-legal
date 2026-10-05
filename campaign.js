@@ -1,7 +1,14 @@
 // Apple campaign attribution only. No cookies, storage, or web event collection.
 (() => {
-  const source = new URLSearchParams(location.search).get('source') === 'reddit' ? 'reddit' : 'web';
-  const campaign = `digicam_slider_${source}`;
+  const campaigns = Object.freeze({
+    reddit: 'digicam_slider_reddit',
+    producthunt: 'digicam_producthunt',
+    alternativeto: 'digicam_alternativeto',
+    uneed: 'digicam_uneed',
+    launchingnext: 'digicam_launchingnext',
+  });
+  const source = new URLSearchParams(location.search).get('source');
+  const campaign = Object.prototype.hasOwnProperty.call(campaigns, source) ? campaigns[source] : 'digicam_slider_web';
   document.querySelectorAll('a[data-store-campaign]').forEach(link => {
     const url = new URL(link.href);
     url.searchParams.set('ct', campaign);
