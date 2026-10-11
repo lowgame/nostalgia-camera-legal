@@ -3,6 +3,7 @@
   const campaigns = Object.freeze({
     reddit: 'digicam_slider_reddit',
     blog1895: 'digicam_blog_1895',
+    blog1895tr: 'digicam_blog_1895_tr',
     digicamguide: 'digicam_guide',
     producthunt: 'digicam_producthunt',
     alternativeto: 'digicam_alternativeto',
